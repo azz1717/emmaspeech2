@@ -7,7 +7,6 @@
     body {
       font-family: sans-serif;
       margin: 20px;
-      background-color: #f4c2c2; /* pink */
     }
     .sentence-image {
       display: block;
@@ -16,23 +15,30 @@
     }
     .toggle-container {
       margin-bottom: 20px;
+      padding: 10px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      display: inline-block;
     }
-    label {
-      margin-right: 10px;
+    .toggle-container label {
+      margin-right: 15px;
+      font-weight: bold;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
   <h2>Emma's Speech</h2>
 
-  <!-- Toggle switch for speed -->
+  <!-- Global speed selection -->
   <div class="toggle-container">
     <label><input type="radio" name="speed" value="slow" checked> Slow</label>
     <label><input type="radio" name="speed" value="medium"> Medium</label>
     <label><input type="radio" name="speed" value="fast"> Fast</label>
   </div>
 
-  <!-- Images with multiple audio versions -->
+  <!-- 9 images with slow/medium/fast versions -->
   <img src="img/sentence1.jpg" class="sentence-image" 
        data-slow="audio/sentence1_slow.mp3"
        data-medium="audio/sentence1.mp3"
@@ -51,25 +57,59 @@
        data-fast="audio/sentence3_fast.mp3"
        alt="Sentence 3">
 
-  <!-- Add more as needed... -->
+  <img src="img/sentence4.jpg" class="sentence-image" 
+       data-slow="audio/sentence4_slow.mp3"
+       data-medium="audio/sentence4.mp3"
+       data-fast="audio/sentence4_fast.mp3"
+       alt="Sentence 4">
+
+  <img src="img/sentence5.jpg" class="sentence-image" 
+       data-slow="audio/sentence5_slow.mp3"
+       data-medium="audio/sentence5.mp3"
+       data-fast="audio/sentence5_fast.mp3"
+       alt="Sentence 5">
+
+  <img src="img/sentence6.jpg" class="sentence-image" 
+       data-slow="audio/sentence6_slow.mp3"
+       data-medium="audio/sentence6.mp3"
+       data-fast="audio/sentence6_fast.mp3"
+       alt="Sentence 6">
+
+  <img src="img/sentence7.jpg" class="sentence-image" 
+       data-slow="audio/sentence7_slow.mp3"
+       data-medium="audio/sentence7.mp3"
+       data-fast="audio/sentence7_fast.mp3"
+       alt="Sentence 7">
+
+  <img src="img/sentence8.jpg" class="sentence-image" 
+       data-slow="audio/sentence8_slow.mp3"
+       data-medium="audio/sentence8.mp3"
+       data-fast="audio/sentence8_fast.mp3"
+       alt="Sentence 8">
+
+  <img src="img/sentence9.jpg" class="sentence-image" 
+       data-slow="audio/sentence9_slow.mp3"
+       data-medium="audio/sentence9.mp3"
+       data-fast="audio/sentence9_fast.mp3"
+       alt="Sentence 9">
 
   <audio id="player"></audio>
 
   <script>
     let currentSpeed = "slow"; // default mode
 
-    // Listen for speed toggle changes
+    // Update global speed when radios change
     document.querySelectorAll('input[name="speed"]').forEach(radio => {
       radio.addEventListener('change', (e) => {
         currentSpeed = e.target.value;
       });
     });
 
-    // Add click listeners to images
+    // Play correct audio for each image
     document.querySelectorAll('.sentence-image').forEach(img => {
       img.addEventListener('click', () => {
         const player = document.getElementById('player');
-        const file = img.dataset[currentSpeed]; // pick correct version
+        const file = img.dataset[currentSpeed];
         player.src = file;
         player.play();
       });
