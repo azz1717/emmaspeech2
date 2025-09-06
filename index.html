@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emma Speech with Audio</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+	  background-color: #f4c2c2;  /* pink */
+    }
+    .sentence-image {
+      display: block;
+      margin-bottom: 15px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>Emma's Speech</h2>
+
+  <!-- Example image/audio pair -->
+  <img src="img/sentence1.jpg" class="sentence-image" onclick="playAudio('audio/sentence1.mp3')" alt="Sentence 1">
+  <img src="img/sentence2.jpg" class="sentence-image" onclick="playAudio('audio/sentence2.mp3')" alt="Sentence 2">
+  <img src="img/sentence3.jpg" class="sentence-image" onclick="playAudio('audio/sentence3.mp3')" alt="Sentence 3">
+  <img src="img/sentence4.jpg" class="sentence-image" onclick="playAudio('audio/sentence4.mp3')" alt="Sentence 4">
+  <img src="img/sentence5.jpg" class="sentence-image" onclick="playAudio('audio/sentence5.mp3')" alt="Sentence 5">
+  <img src="img/sentence6.jpg" class="sentence-image" onclick="playAudio('audio/sentence6.mp3')" alt="Sentence 6">
+  <img src="img/sentence7.jpg" class="sentence-image" onclick="playAudio('audio/sentence7.mp3')" alt="Sentence 7">
+  <img src="img/sentence8.jpg" class="sentence-image" onclick="playAudio('audio/sentence8.mp3')" alt="Sentence 8">
+  <img src="img/sentence9.jpg" class="sentence-image" onclick="playAudio('audio/sentence9.mp3')" alt="Sentence 9">
+
+  <audio id="player"></audio>
+
+  <script>
+    function playAudio(file) {
+      const player = document.getElementById('player');
+      player.src = file;
+      player.play();
+    }
+  </script>
+</body>
+</html>
